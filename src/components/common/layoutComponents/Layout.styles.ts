@@ -22,7 +22,7 @@ export const MainContent = styled.div`
   min-height: 100vh;
   box-sizing: border-box;
 
-  padding-top: 50px;
+  padding: 50px 0;
   border-radius: 10px;
 
   @media (max-width: 1024px) {
