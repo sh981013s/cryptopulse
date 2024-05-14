@@ -1,4 +1,5 @@
 import { useEffect, useState } from "react";
+import { useNavigate } from "react-router-dom";
 import styled from "styled-components";
 import { Coin } from "@/types/coin.ts";
 import loadCoinImage from "@/utils/loadCoinImage.ts";
@@ -63,8 +64,13 @@ const CoinPrice = styled.span`
 `;
 
 const SingleCoin = ({ coin }: { coin: Coin }) => {
+  const navigate = useNavigate();
   const [imageUrl, setImageUrl] = useState<string | null>(null);
   const [imageLoaded, setImageLoaded] = useState(false);
+
+  const moveToCoinDetailPage = () => {
+    navigate(`/coin/${coin.symbol}`);
+  };
 
   const fetchImage = async () => {
     try {
@@ -82,7 +88,7 @@ const SingleCoin = ({ coin }: { coin: Coin }) => {
   }, [coin.symbol]);
 
   return (
-    <CoinCard>
+    <CoinCard onClick={moveToCoinDetailPage}>
       <CoinImageContainer>
         {imageLoaded && imageUrl ? (
           <CoinImage src={imageUrl} alt={coin.name} />
