@@ -7,9 +7,11 @@ const Layout = ({ children }: PropsWithChildren) => {
   return (
     <>
       <TopNavBar />
-      <S.Layout>
-        <S.MainContent>{children}</S.MainContent>
-      </S.Layout>
+      <S.EntireLayout>
+        <S.MainLayout>
+          <S.MainContent>{children}</S.MainContent>
+        </S.MainLayout>
+      </S.EntireLayout>
       <BottomNavBar />
     </>
   );

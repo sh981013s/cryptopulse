@@ -1,6 +1,6 @@
 import styled from "styled-components";
 
-export const Layout = styled.div`
+export const EntireLayout = styled.div`
   display: flex;
   justify-content: center;
   align-items: center;
@@ -15,7 +15,7 @@ export const Layout = styled.div`
   }
 `;
 
-export const MainContent = styled.div`
+export const MainLayout = styled.div`
   width: 50%;
   background: #202636;
 
@@ -32,4 +32,10 @@ export const MainContent = styled.div`
   @media (max-width: 768px) {
     width: 100%;
   }
+`;
+
+export const MainContent = styled.div`
+  width: 100%;
+  padding: 10px;
+  box-sizing: border-box;
 `;

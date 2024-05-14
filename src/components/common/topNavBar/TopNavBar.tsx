@@ -32,6 +32,7 @@ const NavSection = styled.nav`
 `;
 
 const LogoImg = styled.img`
+  width: 8%;
   cursor: pointer;
 `;
 
