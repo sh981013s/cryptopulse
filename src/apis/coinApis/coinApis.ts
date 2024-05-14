@@ -5,7 +5,8 @@ type FetchedCoinRes = Coin[];
 
 export const getCoinList = async () => {
   try {
-    const response = await coinInstance.get<FetchedCoinRes>(`/coins`);
+    const response =
+      await coinInstance.get<FetchedCoinRes>(`/tickers?quotes=USD`);
     const coins = response.data;
     const slicedCoins = coins.slice(0, 50);
 

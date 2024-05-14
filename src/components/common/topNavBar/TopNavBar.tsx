@@ -21,6 +21,7 @@ const NavSection = styled.nav`
   z-index: 1000;
 
   box-sizing: border-box;
+  background: #202636;
 
   @media (max-width: 1024px) {
     width: 75%;

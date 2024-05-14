@@ -17,6 +17,7 @@ const BottomNav = styled.nav`
   z-index: 1000;
 
   border-radius: 0 0 10px 10px;
+  background: #202636;
 
   @media (max-width: 1024px) {
     width: 75%;

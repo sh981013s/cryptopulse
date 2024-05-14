@@ -6,4 +6,9 @@ export type Coin = {
   rank: number;
   symbol: string;
   type: string;
+  quotes: {
+    USD: {
+      price: number;
+    };
+  };
 };
