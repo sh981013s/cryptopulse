@@ -35,7 +35,11 @@ export const MainLayout = styled.div`
 `;
 
 export const MainContent = styled.div`
+  display: flex;
+  justify-content: center;
+  align-items: center;
   width: 100%;
+  min-height: calc(100vh - 120px);
   padding: 10px;
   box-sizing: border-box;
 `;
