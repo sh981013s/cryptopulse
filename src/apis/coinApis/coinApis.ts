@@ -1,18 +1,43 @@
 import { coinInstance } from "@/apis/instance.ts";
-import { Coin } from "@/types/coin.ts";
+import { Coin, CoinDetail, CoinTicker } from "@/types/coin.ts";
 
 type FetchedCoinRes = Coin[];
 
 export const getCoinList = async () => {
   try {
-    const response =
-      await coinInstance.get<FetchedCoinRes>(`/tickers?quotes=USD`);
-    const coins = response.data;
-    const slicedCoins = coins.slice(0, 50);
+    const { data } = await coinInstance.get<FetchedCoinRes>(
+      `/tickers?quotes=USD&limit=60`,
+    );
 
-    return slicedCoins;
+    return data;
   } catch (error) {
     console.error("Failed to fetch coin list:", error);
+    throw error;
+  }
+};
+
+export const getCoinDetail = async (id: string) => {
+  try {
+    const { data } = await coinInstance.get<CoinDetail>(
+      `/coins/${id}?quotesUSD`,
+    );
+
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch coin detail:", error);
+    throw error;
+  }
+};
+
+export const getCoinTicker = async (id: string) => {
+  try {
+    const { data } = await coinInstance.get<CoinTicker>(
+      `/tickers/${id}?quotesUSD`,
+    );
+
+    return data;
+  } catch (error) {
+    console.error("Failed to fetch coin ticker:", error);
     throw error;
   }
 };

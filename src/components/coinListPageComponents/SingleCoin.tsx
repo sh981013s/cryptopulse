@@ -69,7 +69,7 @@ const SingleCoin = ({ coin }: { coin: Coin }) => {
   const [imageLoaded, setImageLoaded] = useState(false);
 
   const moveToCoinDetailPage = () => {
-    navigate(`/coin/${coin.symbol}`);
+    navigate(`/coin/${coin.id}`);
   };
 
   const fetchImage = async () => {
