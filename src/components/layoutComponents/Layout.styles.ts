@@ -2,8 +2,15 @@ import styled from "styled-components";
 
 export const Layout = styled.div`
   display: flex;
-  flex-direction: column;
+  justify-content: center;
+  align-items: center;
   min-height: 100vh;
-  background-color: #f4f4f4;
+  width: 100vw;
+  background-color: #4b4b4b;
   overflow-y: auto;
+  box-sizing: border-box;
+
+  @media (max-width: 768px) {
+    justify-content: flex-start;
+  }
 `;
