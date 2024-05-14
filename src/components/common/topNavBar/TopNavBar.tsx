@@ -25,12 +25,12 @@ const NavSection = styled.nav`
   }
 `;
 
-const NavBar = () => {
+const TopNavBar = () => {
   return (
     <NavSection>
-      <img src={logoImg} />
+      <img src={logoImg} alt="logo" />
     </NavSection>
   );
 };
 
-export default NavBar;
+export default TopNavBar;
