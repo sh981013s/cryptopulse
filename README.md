@@ -1,6 +1,6 @@
 # Cryptopulse
 
-![로고](/public/main.png) ![그림](/public/list.png) ![디테일](/public/detail.png)
+ ![로고](/public/main.png) ![그림](/public/list.png) ![디테일](/public/detail.png) ![스택](/public/stack.png)
 
 
 ## 프로젝트 소개
