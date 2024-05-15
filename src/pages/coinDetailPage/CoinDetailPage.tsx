@@ -7,7 +7,9 @@ import styled from "styled-components";
 import {
   useCoinDetail,
   useCoinTicker,
+  useHistoricalCoinTicker,
 } from "@/apis/queries/coinQueries/coinQueries.ts";
+import HistoricalPriceChart from "@/components/coinDetailPageComponents/HistoricalPriceChart.tsx";
 import useValidParams from "@/hooks/common/useValidParams.ts";
 import useMyCoins from "@/hooks/myCoin/useMyCoins.ts";
 import useUserStore from "@/stores/useUserStore.ts";
@@ -83,6 +85,7 @@ const CoinDetailPage = () => {
   const { user } = useUserStore();
   const { myCoins, fetchCoins, deleteCoin } = useMyCoins(user?.uid);
   const { data } = useCoinDetail(symbol);
+  const { data: historicalCoinTicker } = useHistoricalCoinTicker(symbol);
   const [userId, setUserId] = useState<string | null>(null);
 
   const myCoinSymbols =
@@ -140,6 +143,8 @@ const CoinDetailPage = () => {
     }
   };
 
+  const historicalCoinTickerArr = historicalCoinTicker.map((day) => day.price);
+
   return (
     <DetailContainer>
       <BackButton onClick={goBack}>
@@ -150,7 +155,9 @@ const CoinDetailPage = () => {
       <Header>
         {data.name} ({data.symbol})
       </Header>
+
       {data.logo && <Image src={data.logo} alt={`${data.name} logo`} />}
+
       <InfoText>Rank: {data.rank}</InfoText>
       <InfoText>Status: {data.is_active ? "Active" : "Inactive"}</InfoText>
       <InfoText>Type: {data.type}</InfoText>
@@ -159,13 +166,14 @@ const CoinDetailPage = () => {
         Started on: {new Date(data.started_at).toLocaleDateString()}
       </InfoText>
       <InfoText>Price: ${ticker.quotes.USD.price.toFixed(2)}</InfoText>
+      <HistoricalPriceChart prices={historicalCoinTickerArr} />
+
       {!isAddedToMyCoins && (
         <CartButton onClick={addToCart}>
           <FaShoppingCart />
           Add to my coins
         </CartButton>
       )}
-
       {isAddedToMyCoins && (
         <CartButton onClick={deleteFromCart}>
           <MdDeleteSweep />

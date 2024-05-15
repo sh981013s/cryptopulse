@@ -148,3 +148,10 @@ export type CoinTicker = {
 export type CoinMap = {
   [key: string]: { symbol: string };
 };
+
+export type SingleCoinTicker = {
+  timestamp: Date;
+  price: number;
+  volume_24h: number;
+  market_cap: number;
+};
