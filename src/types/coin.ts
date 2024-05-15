@@ -144,3 +144,7 @@ export type CoinTicker = {
     USD: PriceInfo;
   };
 };
+
+export type CoinMap = {
+  [key: string]: { symbol: string };
+};

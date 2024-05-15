@@ -3,7 +3,7 @@ import { useCoinList } from "@/apis/queries/coinQueries/coinQueries.ts";
 import DateTimeDisplay from "@/components/coinListPageComponents/DateTimeDisplay.tsx";
 import SingleCoin from "@/components/coinListPageComponents/SingleCoin.tsx";
 
-const CoinListContainer = styled.div`
+export const CoinListContainer = styled.div`
   display: flex;
   flex-wrap: wrap;
   gap: 20px;

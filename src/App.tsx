@@ -7,6 +7,7 @@ import CoinDetailPage from "@/pages/coinDetailPage/CoinDetailPage.tsx";
 import LoginPage from "@/pages/loginPage/LoginPage.tsx";
 import MainPage from "@/pages/mainPage/MainPage.tsx";
 import MarketPage from "@/pages/marketPage/MarketPage.tsx";
+import MyCoinPage from "@/pages/myCoinsPage/MyCoinPage.tsx";
 
 const App = () => {
   return (
@@ -31,6 +32,7 @@ const App = () => {
             <Route path="/login" element={<LoginPage />} />
             <Route path="/markets" element={<MarketPage />} />
             <Route path="/coin/:symbol" element={<CoinDetailPage />} />
+            <Route path="/my-coins" element={<MyCoinPage />} />
           </Routes>
         </Suspense>
       </Layout>
